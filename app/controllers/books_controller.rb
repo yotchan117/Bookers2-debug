@@ -51,9 +51,7 @@ class BooksController < ApplicationController
   end
 
   def is_matching_login_user
-    if @book.user == current_user
-      render :edit
-    else
+    unless @book.user == current_user
       redirect_to books_path
     end
   end
